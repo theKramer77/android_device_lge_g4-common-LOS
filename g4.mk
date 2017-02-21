@@ -49,5 +49,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.renderer=opengl
 
+# Rootless torch tile workaround
+PRODUCT_PACKAGES += \
+    Flashlight
+
 # Inherits fdroid
 $(call inherit-product-if-exists, vendor/fdroid/fdroid-vendor.mk)

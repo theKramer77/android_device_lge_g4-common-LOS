@@ -11,3 +11,5 @@ allow system_app debugfs_kgsl:dir search;
 
 dontaudit system_app installd:binder call;
 dontaudit system_app netd:binder call;
+
+#neverallow: allow system_app sysfs:file write;
