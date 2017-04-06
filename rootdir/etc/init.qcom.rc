@@ -1227,3 +1227,8 @@ on property:gsm.version.baseband=""
 
 on property:wlan.write.con_mode=*
     write /sys/module/wlan/parameters/con_mode ${wlan.write.con_mode}
+
+# This fixes broken data connection on netmgrd crash
+on property:sys.boot_completed=1
+    restart ril-daemon
+    restart netmgrd
