@@ -32,6 +32,10 @@ TARGET_BOOT_ANIMATION_RES := 1440
 
 include $(LOCAL_PATH)/product/*.mk
 
+# Glove mode
+PRODUCT_PACKAGES += \
+    GloveMode
+
 # Dalvik heap
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapstartsize=12m \
