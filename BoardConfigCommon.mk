@@ -42,5 +42,9 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib/libshim_camera.so:/system/lib/libcamera_client.so|libshim_cameraclient.so \
     /system/vendor/lib/libmmcamera_stillmore_lib.so|/system/lib/libcamera_client.so
 
+#Use device specific data-ipa-cfg-mgr
+USE_DEVICE_SPECIFIC_IPACFG_MGR := true
+DEVICE_SPECIFIC_IPACFG-MGR_PATH := $(PLATFORM_PATH)/data-ipa-cfg-mgr
+
 # inherit from the proprietary version
 -include vendor/lge/g4-common/BoardConfigVendor.mk
