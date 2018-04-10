@@ -70,7 +70,14 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libwvm.so|libshims_wvm.so \
     /system/vendor/lib64/libril-qc-qmi-1.so|/system/vendor/lib64/rild_socket.so
 
- #Use device specific data-ipa-cfg-mgr
+# Telephony
+PRODUCT_PACKAGES += \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
+#Use device specific data-ipa-cfg-mgr
 USE_DEVICE_SPECIFIC_IPACFG_MGR := true
 DEVICE_SPECIFIC_IPACFG-MGR_PATH := $(PLATFORM_PATH)/data-ipa-cfg-mgr
 
