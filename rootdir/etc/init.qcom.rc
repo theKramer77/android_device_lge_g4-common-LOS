@@ -1006,10 +1006,9 @@ service qseecomd /system/vendor/bin/qseecomd
     writepid /dev/cpuset/system-background/tasks
 
 service perfd /system/bin/perfd
-    class main
+    class late_start
     user root
     group root readproc
-    disabled
     socket perfd seqpacket 0666 root system
     writepid /dev/cpuset/system-background/tasks
 
