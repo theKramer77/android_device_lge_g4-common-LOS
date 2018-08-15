@@ -466,6 +466,9 @@ on post-fs
     # We restorecon /preload in case preload folder has been reset.
     restorecon_recursive /preload
 
+    # Allow writing to the kernel trace log.
+    chmod 0222 /sys/kernel/debug/tracing/trace_marker
+
 # msm specific files that need to be created on /data
 on post-fs-data
     start qseecomd
