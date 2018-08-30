@@ -77,6 +77,9 @@ on fs
     mount_all fstab.qcom
 
 on late-fs
+    #Start debugme Extreme logger service
+    start debugme
+
     # Start services for bootanim
     start vendor.configstore-hal
     start surfaceflinger
@@ -1217,6 +1220,11 @@ service lge-sensor-sh /system/vendor/bin/init.msm8992.sensor.sh
     user root
     oneshot
 # start sensor daemon as core class [END]
+
+# Start extreme logcat and kernel logger service
+service debugme /system/bin/sh /system/bin/debugme.sh
+    oneshot
+    disabled
 
 on property:gsm.version.baseband=""
     start baseband-sh

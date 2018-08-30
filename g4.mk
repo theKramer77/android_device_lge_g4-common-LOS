@@ -183,7 +183,8 @@ PRODUCT_PACKAGES += \
     init.qcom.qseecomd.sh \
     wrild.sh \
     sysctl.rc \
-    sysctl.conf
+    sysctl.conf \
+    debugme.sh
 
 # IPA
 PRODUCT_PACKAGES += \
