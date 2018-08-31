@@ -22,6 +22,10 @@ TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 include $(COMMON_PATH)/PlatformConfig.mk
 include $(COMMON_PATH)/board/*.mk
 
+# Camera
+TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
+	/system/vendor/bin/mm-qcamera-daemon=24
+
 # HIDL
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/configs/manifest.xml
 
