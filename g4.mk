@@ -31,6 +31,11 @@ TARGET_SCREEN_WIDTH := 1440
 
 include $(LOCAL_PATH)/product/*.mk
 
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
-
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
+# Dalvik heap
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapstartsize=12m \
+    dalvik.vm.heapgrowthlimit=288m \
+    dalvik.vm.heapsize=768m \
+    dalvik.vm.heaptargetutilization=0.85 \
+    dalvik.vm.heapminfree=3m \
+    dalvik.vm.heapmaxfree=12m
