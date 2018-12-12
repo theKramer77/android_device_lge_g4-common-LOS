@@ -38,8 +38,8 @@
 /dev/watchdog             0755   system     system
 
 # the DIAG device node is not world writable/readable.
-/dev/diag                 0660   system     oem_2950
-/dev/diag_lge             0660   system     oem_2950
+/dev/diag                 0666   system     oem_2950
+/dev/diag_lge             0666   system     oem_2950
 
 /dev/genlock              0666   system     system
 /dev/kgsl                 0666   system     system
