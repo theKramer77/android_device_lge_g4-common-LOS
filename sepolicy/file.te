@@ -9,5 +9,5 @@ type debugfs_rmt, debugfs_type, fs_type;
 type debugfs_rfs, debugfs_type, fs_type;
 
 # vmstat
-type proc_vmstat, fs_type;
+#type proc_vmstat, fs_type;
 

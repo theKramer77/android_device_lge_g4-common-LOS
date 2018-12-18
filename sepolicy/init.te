@@ -1,6 +1,6 @@
 allow init app_data_file:dir search;
-allow init app_data_file:file setattr;
-allow init sensors_data_file:dir mounton;
+#allow init app_data_file:file setattr;
+#allow init sensors_data_file:dir mounton;
 allow init smem_log_device:chr_file { write ioctl };
 allow init vfat:dir mounton;
 allow init frp_block_device:blk_file setattr;
