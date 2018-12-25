@@ -594,7 +594,7 @@ on post-fs-data
     write /sys/module/bcmdhd/parameters/firmware_path "/system/etc/firmware/fw_bcmdhd.bin"
 
     # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
+    mkdir /data/time/ 0770 system system
 
     mkdir /data/audio/ 0770 media audio
 
@@ -1110,7 +1110,7 @@ on property:sys.boot_completed=1
     stop logger
 
 service time_daemon /system/vendor/bin/time_daemon
-    class late_start
+    class main
     user root
     group root diag
 
