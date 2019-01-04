@@ -24,7 +24,8 @@ include $(COMMON_PATH)/board/*.mk
 
 # Camera
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-	/system/vendor/bin/mm-qcamera-daemon=24
+	/system/vendor/bin/mm-qcamera-daemon=24 \
+        /vendor/bin/hw/rild=27
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/configs/manifest.xml
