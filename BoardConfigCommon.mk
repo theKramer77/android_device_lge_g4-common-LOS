@@ -33,6 +33,9 @@ DEVICE_MANIFEST_FILE := $(COMMON_PATH)/configs/manifest.xml
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
+# Radio: Use prebuilt qti-telephony-common
+TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+
 # Shim libs
 TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/libril-qc-qmi-1.so|/system/vendor/lib64/rild_socket.so \
