@@ -32,16 +32,6 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
-# lte_get_service_object_v01_shim
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := lte_get_service_object_v01_shim.c
-
-LOCAL_MODULE := lte_get_service_object_v01_shim
-LOCAL_MODULE_TAGS := optional
-LOCAL_CFLAGS_arm64 += -DLIBSHIMS_64BIT
-
-include $(BUILD_SHARED_LIBRARY)
-
 # QSAP
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := libqsap_shim.c
