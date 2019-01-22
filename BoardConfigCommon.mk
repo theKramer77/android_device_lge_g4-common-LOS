@@ -40,7 +40,8 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/libcneapiclient.so|system/vendor/lib64/libcne_shim.so \
     /system/vendor/lib/hw/camera.msm8992.so|/system/lib/libcamera_shim.so \
     /system/lib/libshim_camera.so:/system/lib/libcamera_client.so|libshim_cameraclient.so \
-    /system/vendor/lib/libmmcamera_stillmore_lib.so|/system/lib/libcamera_client.so
+    /system/vendor/lib/libmmcamera_stillmore_lib.so|/system/lib/libcamera_client.so \
+    /system/vendor/lib64/libril-qc-qmi-1.so|/vendor/lib64/lte_get_service_object_internal_v01_shim.so
 
 # inherit from the proprietary version
 -include vendor/lge/g4-common/BoardConfigVendor.mk
