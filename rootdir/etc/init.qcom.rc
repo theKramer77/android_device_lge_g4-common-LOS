@@ -653,37 +653,6 @@ service ss_ramdump /system/bin/subsystem_ramdump
     group system
     disabled
 
-service imsqmidaemon /system/vendor/bin/imsqmidaemon
-    class main
-    user system
-    socket ims_qmid stream 0660 system radio
-    group radio net_raw log diag
-
-service imsdatadaemon /system/vendor/bin/imsdatadaemon
-    class main
-    user system
-    socket ims_datad stream 0660 system radio
-    group system wifi radio inet net_raw log diag net_admin
-    disabled
-
-on property:sys.ims.QMI_DAEMON_STATUS=1
-    start imsdatadaemon
-
-service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
-   class main
-   user system
-   socket ims_rtpd stream 0660 system radio
-   group radio diag inet log
-   disabled
-
-on property:sys.ims.DATA_DAEMON_STATUS=1
-    start ims_rtp_daemon
-
-service imscmservice /system/vendor/bin/imscmservice
-   class main
-   user system
-   group radio diag log
-
 on property:persist.sys.ssr.restart_level=*
     start ssr_setup
 
@@ -1188,12 +1157,6 @@ on property:persist.service.criticaltemp=1
    write /sys/devices/virtual/thermal/thermal_zone12/ctrl_crit_temp 1
    write /sys/devices/virtual/thermal/thermal_zone13/ctrl_crit_temp 1
    write /sys/devices/virtual/thermal/thermal_zone14/ctrl_crit_temp 1
-
-# LGE IMS Features - To interwork with QMI WMS (64-bit exe/lib)
-service imswmsproxy /system/vendor/bin/imswmsproxy
-    class main
-    user system
-    group radio system net_admin net_raw
 
 # start sensor daemon as core class [START]
 service lge-sensor-sh /system/vendor/bin/init.msm8992.sensor.sh
