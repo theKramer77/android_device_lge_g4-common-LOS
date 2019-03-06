@@ -116,7 +116,6 @@ vendor/lib/hw/activity_recognition.msm8992.so
 vendor/lib/hw/flp.default.so
 vendor/lib/hw/gatekeeper.msm8992.so
 vendor/lib/hw/keystore.msm8992.so
-vendor/qcril.db
 vendor/lib/lib-dplmedia.so
 vendor/lib/lib-ims-rcscmjni.so
 vendor/lib/lib-imsSDP.so
