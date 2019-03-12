@@ -848,8 +848,8 @@ service qmuxd /system/vendor/bin/qmuxd
 service netmgrd /system/vendor/bin/netmgrd
     class main
     user root
-    group radio root wifi wakelock inet oem_2950
-    disabled
+    group root wifi wakelock radio inet
+    writepid /dev/cpuset/system-background/tasks
 
 service ipacm-diag /system/vendor/bin/ipacm-diag
     class main
@@ -870,10 +870,6 @@ service sensors /system/vendor/bin/sensors.qcom
     group root system
     writepid /dev/cpuset/system-background/tasks
     disabled
-
-on property:ro.use_data_netmgrd=false
-    # netmgr not supported on specific target
-    stop netmgrd
 
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
