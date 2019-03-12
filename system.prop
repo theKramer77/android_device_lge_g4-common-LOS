@@ -185,7 +185,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # STORAGE
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=true
+    ro.sys.sdcardfs=true \
+    ro.storaged.event.interval=999999
 
 # USB
 #Allow tethering without provisioning app
