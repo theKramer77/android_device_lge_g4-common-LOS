@@ -531,6 +531,10 @@ on post-fs-data
     mkdir /data/vendor/netmgr 0770 radio radio
     chmod 0770 /data/vendor/netmgr
 
+    # Create new data node /data/misc/netmgr
+    mkdir /data/misc/netmgr 0700 root root
+    chmod 0700 /data/misc/netmgr
+
     # Create ipacm log dir
     mkdir /data/vendor/ipa 0770 radio radio
     chmod 0770 /data/vendor/ipa
