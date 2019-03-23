@@ -44,7 +44,7 @@ on early-init
     write /sys/block/zram0/max_comp_streams 4
 
     #Create NETMGR daemon socket area
-    mkdir /dev/socket/netmgr 0750 radio radio
+    mkdir /dev/socket/netmgr 0770 radio radio
     chmod 2770 /dev/socket/netmgr
 
     # Ril sockets
@@ -532,8 +532,8 @@ on post-fs-data
     chmod 0770 /data/vendor/netmgr
 
     # Create new data node /data/misc/netmgr
-    mkdir /data/misc/netmgr 0700 root root
-    chmod 0700 /data/misc/netmgr
+    mkdir /data/misc/netmgr 0770 radio radio
+    chmod 0770 /data/misc/netmgr
 
     # Create ipacm log dir
     mkdir /data/vendor/ipa 0770 radio radio
