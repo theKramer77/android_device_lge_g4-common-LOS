@@ -9,3 +9,6 @@ allow bluetooth smem_log_device:chr_file { read write ioctl open };
 allow bluetooth btnvtool_exec:file execute_no_trans;
 
 dontaudit bluetooth self:capability dac_override;
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(bluetooth)

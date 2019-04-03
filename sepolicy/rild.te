@@ -1,7 +1,8 @@
+
 allow rild audioserver_service:service_manager find;
 allow rild default_android_service:service_manager find;
 allow rild radio_data_file:dir { search write add_name remove_name };
-allow rild radio_data_file:file { create write ioctl read lock open getattr unlink };
+allow rild radio_data_file:file { create write ioctl read lock open getattr setattr unlink };
 
 #allow rild device:chr_file { ioctl open read write };
 allow rild system_data_file:dir { add_name write };
@@ -13,3 +14,13 @@ allow rild smem_log_device:chr_file { read write ioctl open };
 #allow rild system_device:file write;
 allow rild ril_database:dir { search write add_name remove_name };
 allow rild ril_database:file { read write open create getattr setattr unlink lock ioctl };
+
+binder_call(rild, servicemanager)
+allow rild system_file:file execute_no_trans;
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets to RILD
+qmux_socket(rild)
+r_dir_file(rild, radio_data_file)
+
+# rild needs 'lock' for /data/misc/radio/qcril.db
+allow rild system_data_file:file { lock };

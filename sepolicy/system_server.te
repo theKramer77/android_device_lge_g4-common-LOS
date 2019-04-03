@@ -21,3 +21,10 @@ allow system_server tee:unix_dgram_socket sendto;
 
 dontaudit system_server debugfs_kgsl:dir search;
 dontaudit system_server tee:unix_dgram_socket sendto;
+
+allow system_server qmuxd_socket:dir { add_name search write };
+allow system_server qmuxd_socket:sock_file { create unlink write };
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets to system services
+qmux_socket(system_server)
+
+unix_socket_connect(system_server, qmuxd, qmuxd) 

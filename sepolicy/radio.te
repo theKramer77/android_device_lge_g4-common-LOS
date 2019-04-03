@@ -3,3 +3,6 @@ allow radio qmuxd_socket:sock_file { unlink write };
 #allow radio per_mgr:unix_dgram_socket sendto;
 
 allow radio tee:unix_dgram_socket sendto;
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(radio)

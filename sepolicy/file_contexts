@@ -20,6 +20,7 @@
 /dev/soundtrigger_dma_drv                                           u:object_r:audio_device:s0
 /dev/socket/perfd                                                   u:object_r:mpctl_socket:s0
 /(system|system/vendor)/bin/touch                                   u:object_r:touch_socket:s0
+/data/misc/radio(/.*)?                                              u:object_r:radio_data_file:s0
 
 ###################################
 # System files

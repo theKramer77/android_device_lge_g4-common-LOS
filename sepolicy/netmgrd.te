@@ -5,3 +5,23 @@ allow netmgrd toolbox_exec:file { read getattr open execute execute_no_trans };
 allow netmgrd sysfs:file {open read};
 allow netmgrd system_data_file:dir rw_dir_perms;
 allow netmgrd vendor_xlat_prop:property_service set;
+
+#Give all untill we fix all the paths
+allow netmgrd sysfs:file rw_file_perms;
+allow netmgrd sysfs:dir rw_dir_perms;
+
+allow netmgrd radio_prop:property_service set;
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(netmgrd)
+
+allow netmgrd property_socket:sock_file w_file_perms;
+
+ # communicate with netd
+unix_socket_connect(netmgrd, netd, netd)
+
+allow netmgrd self:socket create_socket_perms_no_ioctl;
+allow netmgrd netmgrd_socket:dir w_dir_perms;
+
+unix_socket_connect(netmgrd, property, init)
+allow netmgrd radio_prop:property_service set;
