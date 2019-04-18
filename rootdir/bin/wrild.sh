@@ -9,11 +9,18 @@ PRTRIGGER=0
 REQRESTART=99
 MAXRET=50
 
+# logging func
+F_LOG(){
+    # d: DEBUG  e: ERROR  f: FATAL  i: INFO  v: VERBOSE  w: WARN  s: SILENT
+    log -t WRILD -p "$1" "${0}: $2"
+}
+
+# check for the current RIL state
 F_RILCHK(){
     CURSTATE=$(getprop gsm.sim.state)
     CUROPER=$(getprop gsm.sim.operator.numeric)
-    echo "$0: gsm.sim.state >$CURSTATE<" >> /dev/kmsg
-    echo "$0: gsm.sim.operator.numeric >$CUROPER<" >> /dev/kmsg
+    F_LOG "i" "gsm.sim.state >$CURSTATE<"
+    F_LOG "i" "gsm.sim.operator.numeric >$CUROPER<"
 
     if [ "$CURSTATE" == "READY" ]; then
         echo 0
@@ -36,34 +43,34 @@ while [ "$REQRESTART" -ne 0 ];do
     # this will restart RIL not on the first but every second run only (which should be safe) and
     # let the user enough time to enter the PIN if the prompt appears
     if [ "$REQRESTART" -eq 9 ]&&[ $PRTRIGGER -eq 0 ];then
-        echo "$0: PIN_REQUIRED detected. waiting 10s for user input.." >> /dev/kmsg && sleep 10
+        F_LOG i "PIN_REQUIRED detected. waiting 10s for user input.." && sleep 10
         PRTRIGGER=1
     elif [ "$REQRESTART" -eq 1 ];then
-        echo "$0: RIL restart - try $x of $MAXRET" >> /dev/kmsg
+        F_LOG w "RIL restart - try $x of $MAXRET"
         stop real-ril-daemon
         sleep 1
         start real-ril-daemon
-        echo "$0: restarted RIL daemon as REQRESTART was set to >$REQRESTART<" >> /dev/kmsg
+        F_LOG w "restarted RIL daemon as REQRESTART was set to >$REQRESTART<"
         sleep 20
         PRTRIGGER=0
     elif [ "$REQRESTART" -eq 9 ] ;then
-        echo "$0: PIN_REQUIRED detected. waiting another 20s for user input.." >> /dev/kmsg && sleep 20
+        F_LOG i "PIN_REQUIRED detected. waiting another 20s for user input.." && sleep 20
     elif [ "$REQRESTART" -eq 0 ] ;then
-        echo "$0: no restart required. RILD seems to work properly already." >> /dev/kmsg && break
+        F_LOG i "no restart required. RILD seems to work properly already." && break
     else
-        echo "$0: unusual state detected . waiting 10s and will try again .." >> /dev/kmsg && sleep 20
+        F_LOG e "unusual state detected . waiting 10s and will try again .." && sleep 20
     fi
     x=$((x + 1))
     if [[ $x -eq $MAXRET ]];then
-        echo "$0: auto restart RIL daemon aborted.. too many tries!" >> /dev/kmsg
+        F_LOG e "auto restart RIL daemon aborted.. too many tries!"
         break
     fi
 done
 
 MYPID=$(ps -opid,cmd|grep wrild.sh| egrep -o "[0-9]+")
-echo "$0: RIL should be fine now. Going to background with pid >$MYPID<" >> /dev/kmsg
+F_LOG i "RIL should be fine now. Going to background with pid >$MYPID<"
 
 # run forever
 while true; do sleep 86400; done
 
-echo "$0: killed" >> /dev/kmsg
+F_LOG f "killed?!"
