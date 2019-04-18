@@ -1,11 +1,6 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-# wrild
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/bin/wrild.sh:system/bin/wrild.sh
-
 # Device init scripts
 
 include $(CLEAR_VARS)
@@ -49,6 +44,14 @@ LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
 # Configuration scripts
+
+include $(CLEAR_VARS)
+LOCAL_MODULE	    := wrild.sh
+LOCAL_MODULE_TAGS   := optional eng
+LOCAL_MODULE_CLASS  := BIN
+LOCAL_SRC_FILES	    := bin/wrild.sh
+LOCAL_MODULE_PATH   := $(TARGET_OUT_EXECUTABLES)
+include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE        := init.qcom.coex.sh
