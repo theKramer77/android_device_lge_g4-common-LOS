@@ -1,6 +1,11 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
+# wrild
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/bin/wrild.sh:system/bin/wrild.sh
+
 # Device init scripts
 
 include $(CLEAR_VARS)
