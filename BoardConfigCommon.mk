@@ -62,9 +62,11 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/libcneapiclient.so|system/vendor/lib64/libcne_shim.so \
     /system/vendor/lib/hw/camera.msm8992.so|/system/lib/libcamera_shim.so \
     /system/lib/libshim_camera.so:/system/lib/libcamera_client.so|libshim_cameraclient.so \
-    /system/vendor/lib/libmmcamera_stillmore_lib.so|/system/lib/libcamera_client.so
+    /system/vendor/lib/libmmcamera_stillmore_lib.so|/system/lib/libcamera_client.so \
+    /system/vendor/lib/libwvm.so|libshims_wvm.so \
+    /system/vendor/lib64/libril-qc-qmi-1.so|/system/vendor/lib64/rild_socket.so
 
-#Use device specific data-ipa-cfg-mgr
+ #Use device specific data-ipa-cfg-mgr
 USE_DEVICE_SPECIFIC_IPACFG_MGR := true
 DEVICE_SPECIFIC_IPACFG-MGR_PATH := $(PLATFORM_PATH)/data-ipa-cfg-mgr
 
