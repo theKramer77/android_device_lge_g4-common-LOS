@@ -45,5 +45,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=3m \
     dalvik.vm.heapmaxfree=12m
 
+# Rendering: Fix graphical glitches on skiagl
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.renderer=opengl
+
 # Inherits fdroid
 $(call inherit-product-if-exists, vendor/fdroid/fdroid-vendor.mk)
