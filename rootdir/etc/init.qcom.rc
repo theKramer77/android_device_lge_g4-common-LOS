@@ -478,6 +478,7 @@ on post-fs
     restorecon_recursive /preload
 
     # Allow writing to the kernel trace log.
+    # required for Google wizard / first logon
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
 
 # msm specific files that need to be created on /data
