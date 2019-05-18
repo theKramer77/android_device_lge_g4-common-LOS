@@ -45,10 +45,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=3m \
     dalvik.vm.heapmaxfree=12m
 
-# Rendering: Fix graphical glitches on skiagl
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.renderer=opengl
-
 # Rootless torch tile workaround
 PRODUCT_PACKAGES += \
     Flashlight
