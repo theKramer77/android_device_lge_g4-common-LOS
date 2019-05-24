@@ -19,4 +19,5 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     init.qcom.qseecomd.sh \
     wrild.sh \
-    sysctl.rc
+    sysctl.rc \
+    sysctl.conf
