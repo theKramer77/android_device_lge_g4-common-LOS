@@ -298,6 +298,10 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti \
     power.msm8992
 
+#  QUICKCIRCLE
+PRODUCT_PACKAGES += \
+    QCview
+
 # RADIO
 PRODUCT_PACKAGES += \
     ebtables \
