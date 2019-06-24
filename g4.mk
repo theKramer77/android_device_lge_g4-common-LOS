@@ -380,6 +380,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
 
+# VELIS: Auto Brightness
+PRODUCT_PACKAGES += \
+    Velis
+
 # VIBRATOR
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl
